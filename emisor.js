@@ -69,10 +69,5 @@ async function connect() {
   } catch (error) {
     console.error('Error durante la operación con RabbitMQ:', error.message);
   } 
-  // finally {
-  //   // Asegúrate de cerrar la conexión y el canal al finalizar
-  //  // if (channel) await channel.close();
-  //  // if (connection) await connection.close();
-  //  // console.log('Conexión cerrada');
-  // }
+
 }
