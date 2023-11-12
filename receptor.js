@@ -55,7 +55,7 @@ async function connect() {
 
     console.log('Esperando mensajes. Para salir, presiona CTRL+C');
 
-    // Configura el consumidor para recibir mensajes de la cola
+    // Configuracion el consumidor para recibir mensajes de la cola
     channel.consume(cola, (mensaje) => {
       if (mensaje !== null) {
         let msj = JSON.parse(mensaje.content.toString());
