@@ -1,12 +1,40 @@
-version: '3'
+version: '3.8'
 
 services:
-  rabbitmq:
-    image: rabbitmq:3-management
-    ports:
-      - "15672:15672"
-      - "5672:5672"
+  rabbitmq-node1:
+    image: "rabbitmq:3-management"
+    container_name: rabbitmq-node1
+    hostname: node1.rabbit
+    networks:
+      - rabbitmq-cluster
     environment:
-      RABBITMQ_DEFAULT_USER: "guest"
-      RABBITMQ_DEFAULT_PASS: "guest"
-    container_name: rabbitmq
+      - RABBITMQ_ERLANG_COOKIE=cookie
+      - RABBITMQ_USE_LONGNAME=true
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - node1_data:/var/lib/rabbitmq
+
+  rabbitmq-node2:
+    image: "rabbitmq:3-management"
+    container_name: rabbitmq-node2
+    hostname: node2.rabbit
+    networks:
+      - rabbitmq-cluster
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=cookie
+      - RABBITMQ_USE_LONGNAME=true
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    volumes:
+      - node2_data:/var/lib/rabbitmq
+
+networks:
+  rabbitmq-cluster:
+    driver: bridge
+
+volumes:
+  node1_data:
+  node2_data:
