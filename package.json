@@ -1,0 +1,22 @@
+{
+  "name": "rabbitmq_project",
+  "version": "1.0.0",
+  "description": "Emisor de mensaje",
+  "main": "emisor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoL22002/RabbitMQ_Project.git"
+  },
+  "author": "leo22002",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeoL22002/RabbitMQ_Project/issues"
+  },
+  "homepage": "https://github.com/LeoL22002/RabbitMQ_Project#readme",
+  "dependencies": {
+    "amqplib": "^0.10.3"
+  }
+}
